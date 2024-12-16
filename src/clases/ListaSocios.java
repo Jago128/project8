@@ -30,15 +30,11 @@ public class ListaSocios {
 		Publicacion r2=new Revista("r2", "El mundo", 2020, 2);
 		p.add(l2);
 		p.add(r2);
-		Socio s1=new Socio("1111111A", "Leire", "Trabado", 34, p);
+		listSocios.put("1111111A", new Socio("1111111A", "Leire", "Trabado", 34, p));
 		p.clear();
-		Socio s2=new Socio("2222222A", "Antonio", "Rodeligo", 35, p);
-		Socio s3=new Socio("3333333V", "Jon", "Gonzalez", 36, p);
-		Socio s4=new Socio("5555555J", "Laura", "Gomez", 12, p);
-		listSocios.put("1111111A", s1);
-		listSocios.put("2222222A", s2);
-		listSocios.put("3333333V", s3);
-		listSocios.put("5555555J", s4);
+		listSocios.put("2222222A", new Socio("2222222A", "Antonio", "Rodeligo", 35, p));
+		listSocios.put("3333333V", new Socio("3333333V", "Jon", "Gonzalez", 36, p));
+		listSocios.put("5555555J", new Socio("5555555J", "Laura", "Gomez", 12, p));
 	}
 
 	public boolean esSocio(String dni) {
