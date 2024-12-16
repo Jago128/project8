@@ -1,6 +1,7 @@
 package hashMap_ExceptionStuff;
 
 import clases.Cuenta;
+import clases.NegativeSalaryException;
 import utilidades.Utilidades;
 
 import java.util.HashMap;
@@ -18,15 +19,19 @@ public class ExceptionProject1 {
 			break;
 
 		case 2:
-
+			show(c);
 			break;
 
 		case 3:
-
+			insert(c);
 			break;
 
 		case 4:
-
+			try {
+				retire(c);
+			} catch (NegativeSalaryException e) {
+				e.printStackTrace();
+			}
 			break;
 
 		case 5:
@@ -56,9 +61,9 @@ public class ExceptionProject1 {
 		}
 		return -1;
 	}
-	
+
 	public static void negativeSalary(double salario) {
-		
+
 	}
 
 	public static void add(HashMap <String, Cuenta> c) {
@@ -69,7 +74,7 @@ public class ExceptionProject1 {
 		do {
 			System.out.println("Introduce el DNI:");
 			dni=Utilidades.introducirCadena();
-			
+
 			if (searchDNI(dni,c)!=-1) {
 				System.out.println("Ya existe una cuenta con ese DNI.");
 			}
@@ -91,7 +96,7 @@ public class ExceptionProject1 {
 		double add;
 		System.out.println("Introduce el DNI:");
 		dni=Utilidades.introducirCadena();
-		
+
 		if (searchDNI(dni,c)!=-1) {
 			System.out.println("¿Cuanto dinero quieres añadir?");
 			add=Utilidades.leerDouble();
@@ -101,21 +106,41 @@ public class ExceptionProject1 {
 			System.out.println("No hay cuenta con el DNI introducido.");
 		}
 	}
-	
-	public static void retirar(HashMap <String, Cuenta> c) {
+
+	public static void retire(HashMap <String, Cuenta> c) throws NegativeSalaryException {
 		String dni;
 		double remove;
 		System.out.println("Introduce el DNI:");
 		dni=Utilidades.introducirCadena();
-		
 		if (searchDNI(dni,c)!=-1) {
 			System.out.println("¿Cuanto dinero quieres quitar?");
 			remove=Utilidades.leerDouble();
-
-			c.get(dni).setSalary(c.get(dni).getSalary()-remove);
-			System.out.println("El dinero ha sido añadido correctamente.");
+			if (c.get(dni).getSalary()-remove<0) {
+				throw new NegativeSalaryException(remove);
+			} else {
+				c.get(dni).setSalary(c.get(dni).getSalary()-remove);
+				System.out.println("El dinero ha sido añadido correctamente.");
+			}
 		} else {
 			System.out.println("No hay cuenta con el DNI introducido.");
+		}
+	}
+	
+	public static void showDNIFromName(HashMap <String, Cuenta> c) {
+		String name;
+		boolean found=false;
+		System.out.println("Introduce un nombre.");
+		name=Utilidades.introducirCadena();
+		
+		for (Cuenta e:c.values()) {
+			if (e.getName().equalsIgnoreCase(name)) {
+				System.out.println("DNI de una cuenta de "+name+": "+e.getDni());
+				found=true;
+			}
+		}
+		
+		if (!found) {
+			System.out.println("No hay cuentas con ese nombre.");
 		}
 	}
 }
