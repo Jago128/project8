@@ -25,19 +25,19 @@ public class ExceptionProject2 {
 			break;
 
 		case 4:
-
+			equivPrice(l);
 			break;
 
 		case 5:
-
+			System.out.println(l.masCaro());
 			break;
 
 		case 6:
-
+			System.out.println(l.reponer());
 			break;
 
 		case 7:
-
+			incrStock(l);
 			break;
 
 		case 0:
@@ -147,6 +147,8 @@ public class ExceptionProject2 {
 			System.out.println(e.toString());
 		}
 	}
+	
+	
 	
 	public static void incrStock(ListaArticulo l) {
 		int pos, stock;	
