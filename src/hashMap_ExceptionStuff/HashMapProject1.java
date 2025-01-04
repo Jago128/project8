@@ -21,10 +21,11 @@ public class HashMapProject1 {
 			break;
 
 		case 3:
-			
+			modify(p);
 			break;
 
 		case 4:
+			eliminar(p);
 			break;
 
 		case 5:
