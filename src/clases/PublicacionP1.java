@@ -1,21 +1,22 @@
 package clases;
 
 public class PublicacionP1 {
-	private String id;
+	private int id;
 	private String name;
 	private Tipo type;
 	
-	public PublicacionP1(String id, String name, Tipo type) {
+	public PublicacionP1(int id, String name, Tipo type) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
+
 		this.id = id;
 	}
 

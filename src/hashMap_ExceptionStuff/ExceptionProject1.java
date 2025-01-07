@@ -9,7 +9,6 @@ import java.util.HashMap;
 public class ExceptionProject1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		HashMap <String, Cuenta> c=new HashMap <String, Cuenta>();
 		int menu=menu();
 

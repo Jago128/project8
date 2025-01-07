@@ -4,6 +4,7 @@ public abstract class Publicacion {
 	protected String code;
 	protected String title;
 	protected int year;
+	protected Tipo type;
 	
 	public Publicacion(String code, String title, int year) {
 		this.code = code;

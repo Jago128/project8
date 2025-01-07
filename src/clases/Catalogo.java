@@ -22,14 +22,17 @@ public class Catalogo {
 	}
 
 	public void fillData() {
-		list.add(new Libro("l1","Pajaros a Golpe", 1997, 30));
-		list.add(new Libro("l2","123", 2000, 40));
-		list.add(new Libro("l3","Nada", 1897, 50));
-		list.add(new Libro("l4","Caperucita Roja", 1997, 40));
-		list.add(new Revista("r1", "El mundo", 2020, 1));
-		list.add(new Revista("r2", "El mundo", 2020, 2));
-		list.add(new Revista("r3", "Historia", 2020, 1));
-		list.add(new Revista("r4", "Animales", 2020, 1));
+		this.list.add(new Libro("L001", "Java Programming", 2021, 450));
+        this.list.add(new Libro("L002", "Data Structures", 2020, 380));
+        this.list.add(new Libro("L003", "Operating Systems", 2019, 520));
+        this.list.add(new Libro("L004", "Database Systems", 2022, 600));
+        this.list.add(new Libro("L005", "Artificial Intelligence", 2023, 700));
+
+        this.list.add(new Revista("R001", "Tech Monthly", 2021, 12));
+        this.list.add(new Revista("R002", "Science Weekly", 2023, 52));
+        this.list.add(new Revista("R003", "History Digest", 2020, 6));
+        this.list.add(new Revista("R004", "Health & Wellness", 2022, 4));
+        this.list.add(new Revista("R005", "Art and Culture", 2023, 10));
 	}
 
 	public int posicionPublicacion (String code) {

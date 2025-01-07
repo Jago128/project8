@@ -25,25 +25,36 @@ public class ListaSocios {
 	}
 
 	public void fillData() {
-		ArrayList <Publicacion> p=new ArrayList <Publicacion>();
-		Publicacion l2=new Libro("l2","123", 2000, 40);
-		Publicacion r2=new Revista("r2", "El mundo", 2020, 2);
-		p.add(l2);
-		p.add(r2);
-		listSocios.put("1111111A", new Socio("1111111A", "Leire", "Trabado", 34, p));
-		p.clear();
-		listSocios.put("2222222A", new Socio("2222222A", "Antonio", "Rodeligo", 35, p));
-		listSocios.put("3333333V", new Socio("3333333V", "Jon", "Gonzalez", 36, p));
-		listSocios.put("5555555J", new Socio("5555555J", "Laura", "Gomez", 12, p));
+		ArrayList<Publicacion> p1 = new ArrayList<>();
+        p1.add(new Libro("L001", "Java Basics", 2020, 300));
+        p1.add(new Revista("R001", "Tech Today", 2023, 1));
+
+        ArrayList<Publicacion> p2 = new ArrayList<>();
+        p2.add(new Libro("L002", "Advanced Java", 2021, 450));
+        p2.add(new Revista("R002", "Science Monthly", 2022, 5));
+
+        ArrayList<Publicacion> p3 = new ArrayList<>();
+        p3.add(new Libro("L003", "Python for Beginners", 2019, 200));
+        p3.add(new Revista("R003", "AI Trends", 2023, 3));
+
+        ArrayList<Publicacion> p4 = new ArrayList<>();
+        p4.add(new Libro("L004", "Data Structures", 2018, 350));
+        p4.add(new Revista("R004", "Health Weekly", 2021, 7));
+
+        ArrayList<Publicacion> p5 = new ArrayList<>();
+        p5.add(new Libro("L005", "Machine Learning", 2020, 400));
+        p5.add(new Revista("R005", "Coding Chronicles", 2023, 2));
+
+        this.listSocios.put("12345678A", new Socio("12345678A", "Juan", "Pérez", 30, p1));
+        this.listSocios.put("23456789B", new Socio("23456789B", "María", "Gómez", 25, p2));
+        this.listSocios.put("34567890C", new Socio("34567890C", "Luis", "Martínez", 35, p3));
+        this.listSocios.put("45678901D",new Socio("45678901D", "Ana", "López", 28, p4));
+        this.listSocios.put("56789012E",new Socio("56789012E", "Carlos", "Hernández", 40, p5));
 	}
 
+
 	public boolean esSocio(String dni) {
-		for (Socio s:listSocios.values()) {
-			if (s.getDni().equalsIgnoreCase(dni)) {
-				return true;
-			}
-		}
-		return false;
+		return this.listSocios.containsKey(dni);
 	}
 
 	public void hacerSocio() {
@@ -56,8 +67,7 @@ public class ListaSocios {
 		name=Utilidades.introducirCadena();
 		System.out.println("Apellido:");
 		surN=Utilidades.introducirCadena();
-		System.out.println("Edad:");
-		age=Utilidades.leerInt();
+		age=Utilidades.leerInt("Edad:",0,117);
 		if (age<0) {
 			do {
 				System.err.println("Error. Edad incorrecta.");
